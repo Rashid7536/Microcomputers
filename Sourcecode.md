@@ -621,8 +621,9 @@
         CALL delay_start
         BCF PORTC,3 //CLK Low
         CALL delay_start
-
-
+        GOTO Submain
+        
+        Submain:
        ;==============================================================================;
         BSF PORTC, 2 //ChipSelect Enable (Disable Data Input)
         BCF PORTC, 2 //ChipSelect Disable (Enable Data Input)
@@ -1773,7 +1774,7 @@
 
         BSF PORTC, 2 //ChipSelect Enable (Disable Data Input)
     
-    GOTO MAIN
+        GOTO Submain
     
     delay_start:
       DECFSZ delay1 //reduced by 1 (5-1 = 4)
